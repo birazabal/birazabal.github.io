@@ -16,6 +16,9 @@ function kudeatzaileakHasieratu()
 			klikatuta = false;
 		}					
 	}
+	irudia.ondblclick = function(){
+		alert("ez egin tranparik mesedez ;) ");
+	}
 
 	var erabiltzaile = document.getElementById("erabiltzaile");
 	erabiltzaile.value = 'zure@emaila';
