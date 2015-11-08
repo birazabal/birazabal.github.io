@@ -46,7 +46,7 @@ function kudeatzaileakHasieratu()
 	
 	// img karpetako irudiak erabili ditut... 
 	
-   var irudiizenak = ['carne','drink','fiorentina','heade_ft'];
+   var irudiizenak = ['limoia','mandarinak','marrubiak','meloia','sagarra','sesamo'];
 	
 	function karrusela(){		 		
 			// dudan arraira moldatuta..
@@ -57,7 +57,7 @@ function kudeatzaileakHasieratu()
 			berrasi = false ;
 			//alert("berriro hasi");
 		}	 		
-			if ((indizea < 4)){
+			if ((indizea < 6)){
 				irudia.style.backgroundImage = "url(images/" + irudiizenak[indizea] + ".jpg)";	
 				//console.log("irudiak/" + irudiizenak[indizea] + ".jpg");	
 				indizea = indizea + 1 ;					
