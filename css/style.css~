@@ -231,6 +231,7 @@ box-shadow: 0 45px 60px -50px #000000;
 	margin-right: 20px;
 	margin-bottom: 30px;
 	margin-left: 0px;
+	background-size:cover;
 	
 
 }
