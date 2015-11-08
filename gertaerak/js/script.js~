@@ -46,7 +46,7 @@ function kudeatzaileakHasieratu()
 	
 	// img karpetako irudiak erabili ditut... 
 	
-   var irudiizenak = ['limoia','mandarinak','marrubiak','meloia','sagarra','sesamo'];
+   var irudiizenak = ['limoia','mandarinak','marrubiak','meloia','sagarrak','sesamo'];
 	
 	function karrusela(){		 		
 			// dudan arraira moldatuta..

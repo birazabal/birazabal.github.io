@@ -2,16 +2,19 @@ function kudeatzaileakHasieratu()
 {
 	
 	var berrasi = false ;
-
+	var klikatuta = false;
 	var irudia = document.getElementById("irudia");
 	irudia.onclick = function(){
-		
+		if ( klikatuta == false ){
+			klikatuta = true;
 		//garbitu bueltaka dabilen funtzioa
 			clearInterval(errepikakorra);	
 		// hemendik 7 segundutara berriro deitu
 			setTimeout(sortuErrepika,7000);
 		// berriro hasieratu dugula jakiteko...
-			berrasi = true ;					
+			berrasi = true ;
+			klikatuta = false;
+		}					
 	}
 
 	var erabiltzaile = document.getElementById("erabiltzaile");
