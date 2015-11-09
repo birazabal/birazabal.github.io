@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"> </head>
+<body>
+<script>
+	
+var erloju ;
+
+window.onload = function() {
+ 
+	
+	
+	var bistaratuBotoia = document.getElementById("bistaratu");
+	bistaratuBotoia.onclick = function() {
+		erloju = setInterval(bistaratu,100);		
+	};
+
+	var kalkulatuBotoia = document.getElementById("kalkulatu");
+	   kalkulatuBotoia.onclick = function() { 
+	   
+
+		//var balioa = document.getElementById("balioa").value;	
+		//alert(balioa);
+	   //localStorage.setItem('balioa',balioa);
+	   //console.log("aztertzeko zenbakia: " + balioa );
+	   
+	  
+	   nireworker = new Worker('worker.js');
+	
+		console.log("nireworker-en lana hasi da");
+			 
+		// workerraren erantzuna jasotzeaz eta bistaratzeaz arduratuko den funtzioa
+		
+		nireworker.onmessage = function (event) {
+       	  
+       	  // WORKERRAREN LANA AMAITU DEN EDO EZ ZIURTATU,HALA BADA TERMINATE()
+       	  if ( event.data === "bukatuda"){ 
+					nireworker.terminate();
+					console.log("nireworker-en lana amaitu da");
+				}else{
+					// ETA BESTELA, EMAITZA IDATZI
+				   document.getElementById("irteera").innerHTML += event.data;	
+				}		
+		};  
+	};
+	 	
+
+}
+
+// # bistaratzeaz arduratzen den funtzioa
+function bistaratu() {
+	var irteera = document.getElementById("irteera");
+	irteera.innerHTML = irteera.innerHTML + " #";
+}
+
+
+
+</script>
+<div id="irteera"></div>
+<form>
+
+	<input type="button" id="kalkulatu" value="kalkulatu">
+	<input type="button" id="bistaratu" value="bistaratu">
+	
+</form>
+
+</body>
+</html>
