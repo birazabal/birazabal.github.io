@@ -1,0 +1,4 @@
+OHARRA: 1-7 ariketa multzoko erantzunak foroan eta GitHuben argitaratuko dira, 
+beraz, horiek ez dituzu zertan egin behar ez baduzu nahi edo 
+denborarik ez baduzu. Entregatu eta beraz ebaluatu egingo direnak
+8., 9. eta 10. ariketak dira.
