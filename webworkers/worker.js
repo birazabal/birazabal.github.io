@@ -3,7 +3,7 @@
 //var num0 = 22;
 //var num = 2227644437;
 
-self.onmessage = function(e) {
+onmessage = function(e) {
 
  // console.log('Message received from main script');
   var zenbakia = parseInt((e.data[0]));
