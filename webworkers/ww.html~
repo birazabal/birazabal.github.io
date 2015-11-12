@@ -60,7 +60,7 @@ function bistaratu() {
 </script>
 <div id="irteera"></div>
 <form>
-	<input type="text" id="zenbakia">
+	<input type="text" id="zenbakia" value="2227644437">
 	<input type="button" id="kalkulatu" value="kalkulatu">
 	<input type="button" id="bistaratu" value="bistaratu">
 	

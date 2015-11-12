@@ -24,7 +24,7 @@ window.onload = function() {
 		var zenbakia = document.getElementById("zenbakia").value;
 					
 		console.log(zenbakia + " da kalkulatuko dena >>");
-		document.getElementById("irteera").innerHTML += "kalkulatuko dena" + zenbakia ;	   
+		document.getElementById("irteera").innerHTML += "kalkulatuko den zkia:" + zenbakia ;	   
 		
 		// worker ari zenbakia bidali	   	
 	   nireworker.postMessage(zenbakia);
@@ -60,7 +60,7 @@ function bistaratu() {
 </script>
 <div id="irteera"></div>
 <form>
-	<input type="text" id="zenbakia" value="2227644437">
+	<input type="text" id="zenbakia" value="2227644437"	>
 	<input type="button" id="kalkulatu" value="kalkulatu">
 	<input type="button" id="bistaratu" value="bistaratu">
 	
