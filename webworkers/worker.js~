@@ -25,13 +25,13 @@ function isLehena(n) {
 	if (n == 2){ 
 		postMessage(i + " lehena da !!");
 		postMessage("bukatuda");
-		return true;
+		//return true;
 	}
 	for (; i < n; ++i) {
 		if (n % i == 0) {
 					postMessage( n + " ez da lehena !!");
 					postMessage("bukatuda");
-			      return false;
+			      //return false;
 			      
 			      
 		}
@@ -41,7 +41,7 @@ function isLehena(n) {
 
    postMessage(i + " lehena da !!");
 	postMessage("bukatuda");	
-	return true;
+	//return true;
 		
 	
 }

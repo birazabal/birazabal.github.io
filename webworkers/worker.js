@@ -10,10 +10,7 @@ onmessage = function (event) {
 	//postMessage(event.data);
 	isLehena(zenbakia);
 }
-
-
-
- 	
+	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
 function isLehena(n) {
 	//console.log("funtzio barruan");
@@ -23,13 +20,13 @@ function isLehena(n) {
 	// erabiltzaileak sartutako balioak aztertzeko
 	
 	if (n == 2){ 
-		postMessage(i + " lehena da !!");
+		postMessage(i + " zenbakia lehena da !!");
 		postMessage("bukatuda");
 		//return true;
 	}
 	for (; i < n; ++i) {
 		if (n % i == 0) {
-					postMessage( n + " ez da lehena !!");
+					postMessage( n + " zenbakia ez da lehena !!");
 					postMessage("bukatuda");
 			      //return false;
 			      
@@ -39,12 +36,9 @@ function isLehena(n) {
 	}
 
 
-   postMessage(i + " lehena da !!");
+   postMessage(i + " zenbakia lehena da !!");
 	postMessage("bukatuda");	
 	//return true;
 		
 	
 }
-//isLehena(num0);
-	//isLehena(num);
-//isLehena(num);
