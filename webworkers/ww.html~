@@ -31,11 +31,11 @@ window.onload = function() {
 			var zenbakia = document.getElementById("zenbakia").value;
 			//zenbakia = parseInt(zenbakia);		
 					
-			console.log(zenbakia);	   
+			console.log(zenbakia + " da kalkulatuko dena >>");	   
 			// worker ari zenbakia bidali	   	
 	   	nireworker.postMessage(zenbakia);
 	
-		console.log("nireworker-en lana hasi da");
+		console.log("nireworker-en lana hasi berri da");
 			 
 		// workerraren erantzuna jasotzeaz eta bistaratzeaz arduratuko den funtzioa
 		
@@ -44,7 +44,7 @@ window.onload = function() {
        	  // WORKERRAREN LANA AMAITU DEN EDO EZ ZIURTATU,HALA BADA TERMINATE()
        	  if ( event.data === "bukatuda"){ 
 					nireworker.terminate();
-					console.log("nireworker-en lana amaitu da");
+					console.log("nireworker-en lana amaitu berri da");
 				}else{
 					// ETA BESTELA, EMAITZA IDATZI
 				   document.getElementById("irteera").innerHTML += event.data;	

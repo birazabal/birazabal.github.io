@@ -35,7 +35,7 @@ window.onload = function() {
 			// worker ari zenbakia bidali	   	
 	   	nireworker.postMessage(zenbakia);
 	
-		console.log("nireworker-en lana hasi berri da");
+			//console.log("nireworker-en lana hasi berri da");
 			 
 		// workerraren erantzuna jasotzeaz eta bistaratzeaz arduratuko den funtzioa
 		
@@ -43,8 +43,9 @@ window.onload = function() {
        	  
        	  // WORKERRAREN LANA AMAITU DEN EDO EZ ZIURTATU,HALA BADA TERMINATE()
        	  if ( event.data === "bukatuda"){ 
+					console.log("nireworker-en lana amaitu berri da");				
 					nireworker.terminate();
-					console.log("nireworker-en lana amaitu berri da");
+				
 				}else{
 					// ETA BESTELA, EMAITZA IDATZI
 				   document.getElementById("irteera").innerHTML += event.data;	
