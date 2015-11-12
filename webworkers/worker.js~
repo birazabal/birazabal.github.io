@@ -2,14 +2,17 @@
 
 //var num0 = 22;
 //var num = 2227644437;
-
+onmessage = function (event) {
+	
+	postMessage("mezua jasota");
+}
 self.addEventListener("message", function(e) {
     // the passed-in data is available via e.data
-   var zenbakia = parseInt(e.data);
+   //var zenbakia = parseInt(e.data);
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
   	postMessage("barruan");
-   isLehena(30);
+   //isLehena(30);
 
 }, false);
 
@@ -26,13 +29,13 @@ function isLehena(n) {
 	
 	if (n == 2){ 
 		postMessage(i + " lehena da !!");
-		postMessage("bukatuda");
+		//postMessage("bukatuda");
 		return true;
 	}
 	for (; i < n; ++i) {
 		if (n % i == 0) {
 					postMessage( n + " ez da lehena !!");
-					postMessage("bukatuda");
+					//postMessage("bukatuda");
 			      return false;
 			      
 			      
@@ -42,7 +45,7 @@ function isLehena(n) {
 
 
    postMessage(i + " lehena da !!");
-	postMessage("bukatuda");	
+	//postMessage("bukatuda");	
 	return true;
 		
 	
