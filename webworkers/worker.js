@@ -9,6 +9,7 @@ onmessage = function(e) {
   var zenbakia = parseInt(e.data);
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
+	postMessage("barruan");
   isLehena(30);
 }
  	
