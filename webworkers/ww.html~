@@ -28,7 +28,7 @@ window.onload = function() {
 	   nireworker = new Worker('worker.js');
 	   
 	   //zenbakia bidaliko diogu postMessage metodoaz
-	   nireworker.postMessage("zkia":"2227644437");
+	   nireworker.postMessage( zkia :"2227644437" );
 	
 		console.log("nireworker-en lana hasi da");
 			 
