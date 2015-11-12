@@ -4,7 +4,7 @@
 //var num = 2227644437;
 onmessage = function (event) {
 	
-	postMessage(event.zkia);
+	postMessage(event.data);
 	isLehena(2);
 }
 
@@ -44,5 +44,5 @@ function isLehena(n) {
 	
 }
 //isLehena(num0);
-//isLehena(num);
+	//isLehena(num);
 //isLehena(num);
