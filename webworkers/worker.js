@@ -3,15 +3,18 @@
 //var num0 = 22;
 //var num = 2227644437;
 
-onmessage = function(e) {
-
- // console.log('Message received from main script');
-  var zenbakia = parseInt(e.data);
+self.addEventListener("message", function(e) {
+    // the passed-in data is available via e.data
+   var zenbakia = parseInt(e.data);
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
-	postMessage("barruan");
-  isLehena(30);
-}
+  	postMessage("barruan");
+   isLehena(30);
+
+}, false);
+
+ // console.log('Message received from main script');
+
  	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
 function isLehena(n) {
@@ -23,11 +26,13 @@ function isLehena(n) {
 	
 	if (n == 2){ 
 		postMessage(i + " lehena da !!");
+		postMessage("bukatuda");
 		return true;
 	}
 	for (; i < n; ++i) {
 		if (n % i == 0) {
 					postMessage( n + " ez da lehena !!");
+					postMessage("bukatuda");
 			      return false;
 			      
 			      
@@ -37,11 +42,11 @@ function isLehena(n) {
 
 
    postMessage(i + " lehena da !!");
+	postMessage("bukatuda");	
 	return true;
-	
+		
 	
 }
 //isLehena(num0);
 //isLehena(num);
 //isLehena(num);
-postMessage("bukatuda");
