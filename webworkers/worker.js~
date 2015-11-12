@@ -8,6 +8,7 @@ onmessage = function (event) {
 	isLehena(2);
 }
 
+
  // console.log('Message received from main script');
 
  	
