@@ -5,16 +5,8 @@
 onmessage = function (event) {
 	
 	postMessage(event);
+	isLehena(2);
 }
-self.addEventListener("message", function(e) {
-    // the passed-in data is available via e.data
-   //
-  //console.log('Posting message back to main script');
-  //postMessage(workerResult);
-  	postMessage("barruan");
-   //isLehena(30);
-
-}, false);
 
  // console.log('Message received from main script');
 
