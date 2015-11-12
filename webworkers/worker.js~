@@ -4,8 +4,9 @@
 //var num = 2227644437;
 onmessage = function (event) {
 	
-	postMessage(event.data);
-	isLehena(2);
+	var zenbakia = parseInt(event.data);
+	//postMessage(event.data);
+	isLehena(zenbakia);
 }
 
 

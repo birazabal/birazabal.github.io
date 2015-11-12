@@ -1,15 +1,17 @@
-// lehena da funtzioak aztertuko dituen balioak, kasu honetan bi balio aztertuko ditu
+// zaharra: lehena da funtzioak aztertuko dituen balioak, kasu honetan bi balio aztertuko ditu
 
 //var num0 = 22;
 //var num = 2227644437;
+
+// bigarren bertsioan parametro moduan jasotzen dugu zenbakia, eta ondoren is Lehena funtzioari pasa
 onmessage = function (event) {
 	
-	postMessage(event.data);
-	isLehena(2);
+	var zenbakia = parseInt(event.data);
+	//postMessage(event.data);
+	isLehena(zenbakia);
 }
 
 
- // console.log('Message received from main script');
 
  	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
