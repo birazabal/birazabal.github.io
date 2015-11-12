@@ -1,7 +1,7 @@
-// lehena da funtzioak aztertuko dituen balioak
+// lehena da funtzioak aztertuko dituen balioak, kasu honetan bi balio aztertuko ditu
 
-/*var num0 = 22;
-var num = 2227644437;*/
+var num0 = 22;
+var num = 2227644437;
  	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
 function isLehena(n) {
@@ -24,16 +24,14 @@ function isLehena(n) {
 		}
 		// console.log("Kalkulatzen:" + i);
 	}
- 	//clearInterval(erloju);	
-	//document.getElementById("irteera").inn	erHTML += i;
-	//postMessage(i);
+
 
    postMessage(i + " lehena da !!");
 	return true;
 	
 	
 }
-var balioa = document.getElementById("balioa").value;	
-isLehena(balioa);
+isLehena(num0);
+isLehena(num);
 //isLehena(num);
 postMessage("bukatuda");

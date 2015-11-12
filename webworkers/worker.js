@@ -1,7 +1,16 @@
 // lehena da funtzioak aztertuko dituen balioak, kasu honetan bi balio aztertuko ditu
 
-var num0 = 22;
-var num = 2227644437;
+//var num0 = 22;
+//var num = 2227644437;
+
+onmessage = function(e) {
+
+ // console.log('Message received from main script');
+  var zenbakia = (e.data[0]);
+  //console.log('Posting message back to main script');
+  //postMessage(workerResult);
+ isLehena(zenbakia);
+}
  	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
 function isLehena(n) {
@@ -31,7 +40,7 @@ function isLehena(n) {
 	
 	
 }
-isLehena(num0);
-isLehena(num);
+//isLehena(num0);
+//isLehena(num);
 //isLehena(num);
 postMessage("bukatuda");
