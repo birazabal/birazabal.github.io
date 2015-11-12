@@ -3,10 +3,10 @@
 //var num0 = 22;
 //var num = 2227644437;
 
-onmessage = function(e) {
+self.onmessage = function(e) {
 
  // console.log('Message received from main script');
-  var zenbakia = (e.data[0]);
+  var zenbakia = parseInt((e.data[0]));
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
  isLehena(zenbakia);
