@@ -9,7 +9,7 @@ onmessage = function(e) {
   var zenbakia = parseInt((e.data[0]));
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
- isLehena(zenbakia);
+  isLehena(30);
 }
  	
 // isLehena funtzioa, ia zki bat lehena den ikusten du eta horren arabera postMessage ezberdina bidaltzen du.
