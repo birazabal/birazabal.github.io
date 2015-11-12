@@ -17,25 +17,18 @@ window.onload = function() {
 
 	var kalkulatuBotoia = document.getElementById("kalkulatu");
 	   kalkulatuBotoia.onclick = function() { 
-	   
-		
-		//var balioa = document.getElementById("balioa").value;	
-		//alert(balioa);
-	   //localStorage.setItem('balioa',balioa);
-	   //console.log("aztertzeko zenbakia: " + balioa );
-	   
-	  
-	  		 	nireworker = new Worker('worker.js');
+	   	  
+	  	nireworker = new Worker('worker.js');
 	   
 	   //zenbakia bidaliko diogu postMessage metodoaz
-			var zenbakia = document.getElementById("zenbakia").value;
-			//zenbakia = parseInt(zenbakia);		
+		var zenbakia = document.getElementById("zenbakia").value;
 					
-			console.log(zenbakia + " da kalkulatuko dena >>");	   
-			// worker ari zenbakia bidali	   	
-	   	nireworker.postMessage(zenbakia);
-	
-			console.log("nireworker-en lana hasi berri da");
+		console.log(zenbakia + " da kalkulatuko dena >>");
+		document.getElementById("irteera").innerHTML += "kalkulatuko dena" + zenbakia ;	   
+		
+		// worker ari zenbakia bidali	   	
+	   nireworker.postMessage(zenbakia);
+	   console.log("nireworker-en lana hasi berri da");
 			 
 		// workerraren erantzuna jasotzeaz eta bistaratzeaz arduratuko den funtzioa
 		
