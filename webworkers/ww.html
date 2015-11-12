@@ -18,17 +18,22 @@ window.onload = function() {
 	var kalkulatuBotoia = document.getElementById("kalkulatu");
 	   kalkulatuBotoia.onclick = function() { 
 	   
-
+		
 		//var balioa = document.getElementById("balioa").value;	
 		//alert(balioa);
 	   //localStorage.setItem('balioa',balioa);
 	   //console.log("aztertzeko zenbakia: " + balioa );
 	   
 	  
-	   nireworker = new Worker('worker.js');
+	  		 	nireworker = new Worker('worker.js');
 	   
 	   //zenbakia bidaliko diogu postMessage metodoaz
-	   nireworker.postMessage("2227644437");
+			var zenbakia = document.getElementById("zenbakia").value;
+			//zenbakia = parseInt(zenbakia);		
+					
+			console.log(zenbakia);	   
+			// worker ari zenbakia bidali	   	
+	   	nireworker.postMessage(zenbakia);
 	
 		console.log("nireworker-en lana hasi da");
 			 
@@ -61,7 +66,7 @@ function bistaratu() {
 </script>
 <div id="irteera"></div>
 <form>
-
+	<input type="text" id="zenbakia">
 	<input type="button" id="kalkulatu" value="kalkulatu">
 	<input type="button" id="bistaratu" value="bistaratu">
 	
