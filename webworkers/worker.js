@@ -2,14 +2,17 @@
 
 //var num0 = 22;
 //var num = 2227644437;
-
+onmessage = function (event) {
+	
+	postMessage("mezua jasota");
+}
 self.addEventListener("message", function(e) {
     // the passed-in data is available via e.data
-   var zenbakia = parseInt(e.data);
+   //var zenbakia = parseInt(e.data);
   //console.log('Posting message back to main script');
   //postMessage(workerResult);
   	postMessage("barruan");
-   isLehena(30);
+   //isLehena(30);
 
 }, false);
 
