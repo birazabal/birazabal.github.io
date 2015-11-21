@@ -358,13 +358,51 @@ Board.prototype.add_shape = function(shape){
     //HEMEN BEGIRATU IA LERROA SORTU DEN > REMOVE_COMPLETE_ROWS funtzioa deitu
     
   // alert(this.grid.BLOCK_SIZE);
-    
+    this.remove_complete_rows();
  // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU
-    alert(this.grid[0,1]);
+    //alert(this.grid[block.x]);
 }
 
+Board.prototype.is_row_complete = function(y){
+        for (var x=0; x<this.width; x++)
+                if (! ("".concat(x,",",y) in this.grid))
+                        return false;
+        return true;
+};
+
+Board.prototype.delete_row = function(y){
+   for (var x=0; x<this.width; x++){
+           this.grid["".concat(x,",",y)].erase();
+           delete this.grid["".concat(x,",",y)];
+   }
+};
+
+Board.prototype.move_down_rows = function(y_start){
+   for (var y=y_start; y>=0; y--){
+        for (var x=0; x < this.width; x++){
+                if( "".concat(x,",",y) in this.grid){
+                      var block = this.grid["".concat(x,',',y)];
+                      delete this.grid["".concat(x,',',y)];
+                      while (block.can_move(this,0,1)){
+                        block.erase();
+                        block.move(0,1);
+                      }
+                      this.grid["".concat(block.x,',',block.y)] = block;
+                }
+        }
+   }
+};
+
+Board.prototype.remove_complete_rows = function(){
+   for (var y=0; y<=this.height; y++){
+        if (this.is_row_complete(y)){
+                this.delete_row(y);
+                this.move_down_rows(y-1);
+        }
+   }
+};
 /* pseudokodiguan
-/* 10. ARIKETAKO REMOVE_COMPLETE_ROWS
+/* 10. ARIKETAKO REMOVE_COMPLETE_ROWS >> EGINDA DAGO !! :/
 Board.prototype.remove_complete_rows = function(){
 
     for (i=0;i<10;i++){
