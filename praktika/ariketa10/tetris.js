@@ -357,12 +357,10 @@ Board.prototype.add_shape = function(shape){
    }
     //HEMEN BEGIRATU IA LERROA SORTU DEN > REMOVE_COMPLETE_ROWS funtzioa deitu
     
-  // alert(this.grid.BLOCK_SIZE);
     this.remove_complete_rows();
-    this.game_over(0);
 
  // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU
-    //alert(this.grid[block.x]);
+     this.game_over(0);
 }
 
 Board.prototype.is_row_complete = function(y){
@@ -377,6 +375,8 @@ Board.prototype.delete_row = function(y){
            this.grid["".concat(x,",",y)].erase();
            delete this.grid["".concat(x,",",y)];
    }
+   var puntuakBerri = parseInt(localStorage.getItem("puntuak")) + 5 ;
+   localStorage.setItem("puntuak",puntuakBerri);
 };
 
 Board.prototype.move_down_rows = function(y_start){
@@ -404,16 +404,25 @@ Board.prototype.remove_complete_rows = function(){
    }
 };
 
+/** 10. ARIKETA GAME OVER ! > lehen ilarako 2.etik 6.erako posizioak begiratu, beteta badaude, game over + geratu erlojua */
+
 Board.prototype.game_over = function(y){
         for (var x=2; x<6; x++)
                 if (! ("".concat(x,",",y) in this.grid)){
                     
                 }else{
-                    alert("game_over");
+                        //mezua, jokua amaitu da + puntuak erakutsi
+                        alert("game_over! Zure puntuak : " + localStorage.getItem("puntuak"));
+                        //erlojua eten
+                        clearTimeout(timeDelay);
+                      // Programa guztiz geratzeko apurketa, bestela alerta behin eta berriz azaltzen da
+                        break;
+
                     return true;
                 }
                         return false;
 };
+
 /* pseudokodiguan
 /* 10. ARIKETAKO REMOVE_COMPLETE_ROWS >> EGINDA DAGO !! :/
 Board.prototype.remove_complete_rows = function(){
@@ -483,6 +492,8 @@ Tetris.prototype.create_new_shape = function(){
     var ns = Tetris.SHAPES[Math.floor(Math.random()*Tetris.SHAPES.length)];
     var p = new Point (Math.floor (Tetris.BOARD_WIDTH/2), 0);
     var new_shape = new ns(p);
+    //pieza berria sortean puntuak erakutsi 
+    this.erakutsi_puntuak();
     return new_shape; // allow chaining
 }
 
@@ -503,21 +514,49 @@ Tetris.prototype.init = function(){
     // Argibidea: (Board badu margotzeko metodo bat)
     this.board.draw_shape(this.current_shape);
     //timeDelay = window.setTimeout(this.animate_shape.bind(this), 1000);
+    //animazioa martxan jarri
     this.animate_shape();
+    // markagailua garbitu
+    localStorage.setItem("puntuak",0);
   
     
 
 }
-// 9.ARIKETAN egin behar den animate_shape();
- Tetris.prototype.animate_shape = function()
+
+// 9.ARIKETAN egin behar den animate_shape funtzioa, >>>>
+
+Tetris.prototype.animate_shape = function()
 {
         //method2 returns image based on the id passed
        //this.method2('useSomeElement').src = "http://www.some.url";
      // Eskerrik asko Forokoei ;) honi esker > http://stackoverflow.com/questions/591269/settimeout-and-this-in-javascript/19609853#19609853
        this.do_move("Down");
+      if ( parseInt(localStorage.getItem("puntuak"))<10){
+          
        timeDelay = window.setTimeout(this.animate_shape.bind(this), 1000);
-    
-    }
+          
+      }else if ( parseInt(localStorage.getItem("puntuak"))<20) {
+        
+        timeDelay = window.setTimeout(this.animate_shape.bind(this), 500);
+        
+      } else if ( parseInt(localStorage.getItem("puntuak"))<50) {
+      
+          timeDelay = window.setTimeout(this.animate_shape.bind(this), 250);
+      
+      } else if ( parseInt(localStorage.getItem("puntuak"))<1000) {
+      
+          timeDelay = window.setTimeout(this.animate_shape.bind(this), 150);
+      
+      }
+}
+
+// PUNTUAZIOA ERAKUSTEKO FUNTZIOA...
+
+Tetris.prototype.erakutsi_puntuak = function(){
+    var puntuakOrain = localStorage.getItem("puntuak");
+    document.getElementById("puntuak").innerHTML = "Puntuak: " + puntuakOrain ;
+
+}
 
 Tetris.prototype.key_pressed = function(e) { 
 
