@@ -355,8 +355,41 @@ Board.prototype.add_shape = function(shape){
    for (block of blocks){
        this.grid["".concat(block.x,',',block.y)] = block;
    }
-   alert(this.grid);
+    //HEMEN BEGIRATU IA LERROA SORTU DEN > REMOVE_COMPLETE_ROWS funtzioa deitu
+    
+  // alert(this.grid.BLOCK_SIZE);
+    
+ // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU
+    alert(this.grid[0,1]);
 }
+
+/* pseudokodiguan
+/* 10. ARIKETAKO REMOVE_COMPLETE_ROWS
+Board.prototype.remove_complete_rows = function(){
+
+    for (i=0;i<10;i++){
+    
+        if (is_row_complete(i)){
+            delete_row(i);
+            move_down_rows(i);
+        }
+    }
+} 
+
+Board.prototype.game_over= function(){
+
+    for (i=0;i<10;i++){
+    
+        if (is_row_complete(i)){
+            delete_row(i);
+            move_down_rows(i);
+        }
+    }
+} 
+
+
+
+*/
 
  /*****************************
  *	 5. ARIKETA           *
