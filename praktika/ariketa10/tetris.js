@@ -359,6 +359,8 @@ Board.prototype.add_shape = function(shape){
     
   // alert(this.grid.BLOCK_SIZE);
     this.remove_complete_rows();
+    this.game_over(0);
+
  // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU
     //alert(this.grid[block.x]);
 }
@@ -400,6 +402,17 @@ Board.prototype.remove_complete_rows = function(){
                 this.move_down_rows(y-1);
         }
    }
+};
+
+Board.prototype.game_over = function(y){
+        for (var x=2; x<6; x++)
+                if (! ("".concat(x,",",y) in this.grid)){
+                    
+                }else{
+                    alert("game_over");
+                    return true;
+                }
+                        return false;
 };
 /* pseudokodiguan
 /* 10. ARIKETAKO REMOVE_COMPLETE_ROWS >> EGINDA DAGO !! :/
