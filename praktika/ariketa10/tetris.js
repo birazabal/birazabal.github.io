@@ -204,9 +204,10 @@ function I_Shape(center) {
                new Point(center.x , center.y),
                new Point(center.x + 1, center.y)];
     
-     Shape.prototype.init.call(this, coords, "blue");   
-	 this.shift_rotation_dir = true;
+     Shape.prototype.init.call(this, coords, "blue"); 
+     this.shift_rotation_dir = true;
      this.center_block = this.blocks[2];
+
 }
 
 // ZURE KODEA HEMEN: I_Shape klaseak Shape klasetik heredatzen du
@@ -360,8 +361,7 @@ Board.prototype.add_shape = function(shape){
     
     this.remove_complete_rows();
 
- // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU
-     this.game_over(0);
+ // BEGIRATU IA GOIAN DAGOEN > GAME_OVER FUNTZIOA DEITU    
 }
 
 Board.prototype.is_row_complete = function(y){
@@ -408,6 +408,8 @@ Board.prototype.remove_complete_rows = function(){
 /** 10. ARIKETA GAME OVER ! > lehen ilarako 2.etik 6.erako posizioak begiratu, beteta badaude, game over + geratu erlojua */
 
 Board.prototype.game_over = function(y){
+    
+    //lehen lerroak okupatuta badaude, pieza ezin da sortu...
         for (var x=2; x<6; x++)
                 if (! ("".concat(x,",",y) in this.grid)){
                     
@@ -519,7 +521,9 @@ Tetris.prototype.init = function(){
     this.animate_shape();
     // markagailua garbitu
     localStorage.setItem("puntuak",0);
-  
+  //var audio = new Audio('tetris-gameboy-02.mp3');
+   
+    
     
 
 }
@@ -531,9 +535,10 @@ Tetris.prototype.animate_shape = function()
         //method2 returns image based on the id passed
        //this.method2('useSomeElement').src = "http://www.some.url";
      // Eskerrik asko Forokoei ;) honi esker > http://stackoverflow.com/questions/591269/settimeout-and-this-in-javascript/19609853#19609853
+         
        this.do_move("Down");
       if ( parseInt(localStorage.getItem("puntuak"))<10){
-          
+        
        timeDelay = window.setTimeout(this.animate_shape.bind(this), 1000);
           
       }else if ( parseInt(localStorage.getItem("puntuak"))<20) {
@@ -543,7 +548,7 @@ Tetris.prototype.animate_shape = function()
       } else if ( parseInt(localStorage.getItem("puntuak"))<50) {
       
           timeDelay = window.setTimeout(this.animate_shape.bind(this), 250);
-      
+        
       } else if ( parseInt(localStorage.getItem("puntuak"))<1000) {
       
           timeDelay = window.setTimeout(this.animate_shape.bind(this), 150);
@@ -606,9 +611,12 @@ Tetris.prototype.do_move = function(direction) {
 	    // ZURE KODEA HEMEN: gehitu uneko pieza grid-era. Sortu pieza berri bat eta taulan margotu.
             this.board.add_shape(this.current_shape);
         //begiratu ia lerrorik dagoen edo ez 10.ariketa > board_add_shape begiratu
-        
+            
             this.current_shape = this.create_new_shape();
             this.board.draw_shape(this.current_shape);
+            //begiratu ia pieza gehiago jarri daitezken...bestela jokua bukatzeko funtzioa deitu
+            setTimeout(this.board.game_over(0), 2000);
+            
    }
 }
 Tetris.prototype.do_move2 = function(direction) {

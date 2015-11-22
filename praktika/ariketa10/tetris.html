@@ -6,10 +6,12 @@
    <script src="tetris.js"></script>
 </head>
 <body>
-     <div id="puntuak"></div>
+     <div id="puntuak">Sakatu F5 hasteko</div>
     <canvas id="canvas" width="300" height="600"></canvas>
    
-
+<audio controls id="musika" style="display:none !important;">
+ 						<source src="http://66.90.91.26/ost/tetris-gameboy-rip-/eeeughvtth/tetris-gameboy-02.mp3" type="audio/ogg">
+				</audio>		
 <script>
 // ===== main ====
 // canvas related variables
@@ -22,6 +24,10 @@ ctx.fillRect(0,0,canvas.width,canvas.height);
 
 var game = new Tetris();
 game.init();
+// tetris gameboy bertsioko musika
+var musika = document.getElementById("musika");
+    
+    musika.play();
 
 </script>
 </body>
