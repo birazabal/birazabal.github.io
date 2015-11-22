@@ -204,12 +204,9 @@ function I_Shape(center) {
                new Point(center.x , center.y),
                new Point(center.x + 1, center.y)];
     
-     Shape.prototype.init.call(this, coords, "blue"); 
-     this.shift_rotation_dir = true;
-     this.center_block = this.blocks[0];
+     Shape.prototype.init.call(this, coords, "blue");   
 
 }
-
 
 // ZURE KODEA HEMEN: I_Shape klaseak Shape klasetik heredatzen du
 

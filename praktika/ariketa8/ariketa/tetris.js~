@@ -129,7 +129,7 @@ Shape.prototype.init = function(coords, color) {
 	// Post-baldintza: koordenatu bakoitzeko, kolore horretako bloke bat sortzen du eta bloke-array batean gordetzen du
 
     this.blocks =  [];
-   this.rotation_dir = 1;
+  this.rotation_dir = 1;
 
     var self = this.blocks;
     coords.forEach ( function ( pos ) {
@@ -197,6 +197,7 @@ Shape.prototype.move = function(dx, dy) {
     }
 };
 
+
 // ============= I_Shape ================================
 function I_Shape(center) {
      var coords = [new Point(center.x - 2, center.y),
@@ -204,12 +205,9 @@ function I_Shape(center) {
                new Point(center.x , center.y),
                new Point(center.x + 1, center.y)];
     
-     Shape.prototype.init.call(this, coords, "blue"); 
-     this.shift_rotation_dir = true;
-     this.center_block = this.blocks[0];
+     Shape.prototype.init.call(this, coords, "blue");   
 
 }
-
 
 // ZURE KODEA HEMEN: I_Shape klaseak Shape klasetik heredatzen du
 
@@ -414,27 +412,13 @@ Tetris.prototype.init = function(){
 
     // Ausaz aukeratu pieza bat --> uneko pieza 
     this.current_shape = this.create_new_shape()
-    //this.current_shape.animate_shape();
+
     // ZURE KODEA HEMEN:
     // Taulan uneko pieza margotu
     // Argibidea: (Board badu margotzeko metodo bat)
     this.board.draw_shape(this.current_shape);
-    //timeDelay = window.setTimeout(this.animate_shape.bind(this), 1000);
-    this.animate_shape();
-  
-    
 
 }
-// 9.ARIKETAN egin behar den animate_shape();
- Tetris.prototype.animate_shape = function()
-{
-        //method2 returns image based on the id passed
-       //this.method2('useSomeElement').src = "http://www.some.url";
-     // Eskerrik asko Forokoei ;) honi esker > http://stackoverflow.com/questions/591269/settimeout-and-this-in-javascript/19609853#19609853
-       this.do_move("Down");
-       timeDelay = window.setTimeout(this.animate_shape.bind(this), 1000);
-    
-    }
 
 Tetris.prototype.key_pressed = function(e) { 
 
@@ -486,24 +470,6 @@ Tetris.prototype.do_move = function(direction) {
             this.board.draw_shape(this.current_shape);
    }
 }
-Tetris.prototype.do_move2 = function(direction) {
-	// ZURE KODEA HEMEN: erabiltzaileak Left, Right edo Down (ezkerrera, eskubira edo behera) tekla sakatu du. Tekla horri dagokion norabidean
-	// mugitu behar dugu pieza. Gogorati Tetris.DIRECTION array-ak norabide bakoitzaren desplazamenduak gordetzen dituela
-	// orduan Tetris.DIRECTION[direction] atzituz gero, (dx, dy) desplazamendua lortuko duzu. Jarraian aztertu ea uneko pieza desplazamendu horrekin
-	// mugitu ahal den. Baiezkoan, pieza mugitu.
-    var dx = Tetris.DIRECTION[direction][0];
-    var dy = Tetris.DIRECTION[direction][1];
-
-       // this.clearBoard();
-        this.current_shape.move(dx,dy);
-/* 6. Ariketan eskatzen den kodea */
-    if(direction=='Down'){
-	    // ZURE KODEA HEMEN: gehitu uneko pieza grid-era. Sortu pieza berri bat eta taulan margotu.
-            this.board.add_shape(this.current_shape);
-            this.current_shape = this.create_new_shape();
-            this.board.draw_shape(this.current_shape);
-   }
-}
 
 // 8. ARIKETA > PIEZAK BUELTA EMAN DEZATEN PROGRAMATU 
 Tetris.prototype.do_rotate = function(){
@@ -514,7 +480,7 @@ Tetris.prototype.do_rotate = function(){
         //alert("buelta eman");>> ARAZOA MAKILA LUZEAK EZ DIRA BIRATZEN!!!!
         this.current_shape.rotate();
     }else{
-        this.current_shape.rotate();
+        this.curret_shape.rotate();
     // alert("ezin da buelta eman");}
 }
 
@@ -524,7 +490,7 @@ Tetris.prototype.do_jeitsi = function(direction){
     
     // ZURE KODEA HEMEN: uneko pieza biratu ahal bada, biratu ezazu. Gogoan izan Shape.can_rotate eta Shape.rotate jada programatuta daudela!
     var dx = Tetris.DIRECTION[direction][0];
-    var dy = Tetris.DIRECTION[direction][1];
+    var dy = Tetris.DIRECTION[direction][1]
 
      if (this.current_shape.can_move(this.board, dx, dy)) {
        // this.clearBoard();
@@ -538,14 +504,3 @@ Tetris.prototype.do_jeitsi = function(direction){
 
     
 }
-
-/*
-test.prototype.method = function()
-    {
-        //method2 returns image based on the id passed
-        this.method2('useSomeElement').src = "http://www.some.url";
-        timeDelay = window.setTimeout(this.method.bind(this), 5000);
-        //                                       ^^^^^^^^^^^ <- fix context
-    }; 
-
-*/
