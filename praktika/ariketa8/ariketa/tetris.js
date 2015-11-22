@@ -207,7 +207,7 @@ function I_Shape(center) {
     
      Shape.prototype.init.call(this, coords, "blue"); 
      this.shift_rotation_dir = true;
-     this.center_block = this.blocks[0];
+     this.center_block = this.blocks[2];
 
 }
 
